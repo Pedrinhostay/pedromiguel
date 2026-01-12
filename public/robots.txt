@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://pedromiguel.com.br/sitemap.xml
+
+# Disallow admin or private paths (if any exist)
+# Disallow: /admin/
+# Disallow: /api/
