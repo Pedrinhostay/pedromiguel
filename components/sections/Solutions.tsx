@@ -96,12 +96,12 @@ export function Solutions() {
                 </div>
 
                 {/* Galeria Expansiva */}
-                <div className="flex flex-col lg:flex-row gap-4 h-[600px] w-full mb-32">
+                <div className="flex flex-col lg:flex-row gap-4 h-[800px] lg:h-[600px] w-full mb-32">
                     {solutionKeys.map((item) => (
                         <motion.div
                             key={item.id}
-                            className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${activeId === item.id ? "lg:flex-[3]" : "lg:flex-[1]"
-                                } flex-1 min-h-[100px]`}
+                            className={`relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${activeId === item.id ? "flex-[3]" : "flex-[1]"
+                                } min-h-[100px]`}
                             onClick={() => setActiveId(item.id)}
                             onMouseEnter={() => setActiveId(item.id)}
                         >
