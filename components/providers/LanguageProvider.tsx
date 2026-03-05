@@ -115,13 +115,13 @@ const translations: Record<Language, Record<string, string>> = {
         "about.badge": "ABOUT ME",
         "about.title": "Transforming complexity into efficiency.",
         "about.p1": "My name is Pedro Miguel and I design the infrastructure that allows companies to scale without increasing workload.",
-        "about.p2": "Total focus on n8n, AI and system architecture to return strategic time to decision makers.",
+        "about.p2": "Total focus on n8n, IA and system architecture to return strategic time to decision makers.",
         "about.cta": "Schedule Consultation",
 
         // FAQ
         "faq.badge": "Answering your questions",
         "faq.title": "Frequently Asked Questions",
-        "faq.subtitle": "I create sites, automations and intelligent systems using n8n, AI and integrations for companies that want real scale, not workarounds.",
+        "faq.subtitle": "I create sites, automations and intelligent systems using n8n, IA and integrations for companies that want real scale, not workarounds.",
         "faq.q1": "How does the automation consulting work?",
         "faq.a1": "We analyze your current processes, identify bottlenecks and design a personalized automation architecture using n8n and AI to eliminate manual work.",
         "faq.q2": "What tools do you use?",

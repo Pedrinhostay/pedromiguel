@@ -6,14 +6,14 @@ import { FAQ } from "@/components/sections/FAQ";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
-  return (
-    <main className="relative">
-      <Header />
-      <Hero />
-      <Solutions />
-      <About />
-      <FAQ />
-      <Footer />
-    </main>
-  );
+    return (
+        <main className="relative">
+            <Header />
+            <Hero />
+            <Solutions />
+            <About />
+            <FAQ />
+            <Footer />
+        </main>
+    );
 }
