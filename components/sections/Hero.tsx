@@ -132,7 +132,7 @@ export function Hero() {
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 
                 bg-[url('/images/hero-mobile.webp')] 
                 md:bg-[url('/images/hero-tablet.webp')] 
-                lg:bg-[url('/images/hero2.webp')]"
+                lg:bg-[url('/images/hero.webp')]"
             />
 
             <div className="relative z-20 mx-auto max-w-[1400px] px-6 md:px-12 lg:px-20 pt-20 md:pt-32 pb-12 md:pb-20 min-h-[100dvh] md:min-h-screen flex items-end md:items-center">

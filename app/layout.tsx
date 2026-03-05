@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ScrollProvider } from "@/components/providers/ScrollProvider";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
+import { QuizProvider } from "@/components/providers/QuizProvider";
 import { Preloader } from "@/components/ui/Preloader";
 
 const geistSans = Geist({
@@ -67,10 +68,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <LanguageProvider>
-          <Preloader />
-          <ScrollProvider>
-            {children}
-          </ScrollProvider>
+          <QuizProvider>
+            <Preloader />
+            <ScrollProvider>
+              {children}
+            </ScrollProvider>
+          </QuizProvider>
         </LanguageProvider>
       </body>
     </html>
