@@ -139,18 +139,18 @@ export function Hero() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full items-center mt-auto md:mt-0">
 
                     {/* Left Content - Typography Focused */}
-                    <div className="lg:col-span-7 flex flex-col justify-end md:justify-center items-center md:items-start text-center md:text-left">
+                    <div className="lg:col-span-7 flex flex-col justify-end lg:justify-center items-center lg:items-start text-center lg:text-left">
                         <StaggerText
                             text={t("hero.title")}
                             highlightWords={language === "en" ? ["Pages", "scale"] : ["Páginas", "escala"]}
-                            className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white leading-[1.05] mb-8 justify-center md:justify-start"
+                            className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white leading-[1.05] mb-8 justify-center lg:justify-start"
                         />
 
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
-                            className="text-base md:text-xl text-zinc-400 max-w-xl leading-relaxed mb-8 md:mb-10 font-light px-4 md:px-0"
+                            className="text-base md:text-xl text-zinc-400 max-w-xl leading-relaxed mb-8 lg:mb-10 font-light px-4 lg:px-0"
                         >
                             {t("hero.subtitle")}
                         </motion.p>
@@ -160,7 +160,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
-                            className="flex flex-nowrap gap-4 justify-center md:justify-start items-center"
+                            className="flex flex-nowrap gap-4 justify-center lg:justify-start items-center"
                         >
                             <TechButton
                                 text={t("hero.cta")}
