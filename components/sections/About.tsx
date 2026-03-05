@@ -18,7 +18,7 @@ export function About() {
             {/* Hero Image Background - Responsive */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0
-                md:bg-[url('/images/hero.png')]"
+                md:bg-[url('/images/hero.webp')]"
             />
 
             {/* Conteúdo */}
