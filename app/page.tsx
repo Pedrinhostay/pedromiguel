@@ -1,19 +1,48 @@
-import { Header } from "@/components/sections/Header";
+"use client";
+
 import { Hero } from "@/components/sections/Hero";
+import { BrandCarousel } from "@/components/sections/BrandCarousel";
+import { Comparison } from "@/components/sections/Comparison";
 import { Solutions } from "@/components/sections/Solutions";
+import { Integrations } from "@/components/sections/Integrations";
+import { Method } from "@/components/sections/Method";
+import { Impact } from "@/components/sections/Impact";
 import { About } from "@/components/sections/About";
 import { FAQ } from "@/components/sections/FAQ";
-import { Footer } from "@/components/sections/Footer";
+import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export default function Home() {
     return (
-        <main className="relative">
-            <Header />
+        <main className="flex min-h-screen flex-col bg-[#050505] selection:bg-emerald-500/30 selection:text-emerald-200">
+            {/* 1. Hero */}
             <Hero />
+
+            {/* 2. Authority (Brands) */}
+            <BrandCarousel />
+
+            {/* 3 & 4. Comparison (Problem vs Solution) */}
+            <Comparison />
+
+            {/* 5. Implementation (Cards) */}
             <Solutions />
+
+            {/* 6. Integrations */}
+            <Integrations />
+
+            {/* 7. Method */}
+            <Method />
+
+            {/* 8. Impact */}
+            <Impact />
+
+            {/* 9. About */}
             <About />
+
+            {/* 10. FAQ */}
             <FAQ />
-            <Footer />
+
+            {/* 11. Final CTA */}
+            <FinalCTA />
         </main>
     );
 }

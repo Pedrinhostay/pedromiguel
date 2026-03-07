@@ -7,9 +7,16 @@ interface StaggerTextProps {
     className?: string;
     delay?: number;
     highlightWords?: string[];
+    highlightClassName?: string;
 }
 
-export function StaggerText({ text, className = "", delay = 0, highlightWords = [] }: StaggerTextProps) {
+export function StaggerText({
+    text,
+    className = "",
+    delay = 0,
+    highlightWords = [],
+    highlightClassName = "text-emerald-400 font-bold drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]"
+}: StaggerTextProps) {
     const words = text.split(" ");
 
     const container = {
@@ -56,7 +63,23 @@ export function StaggerText({ text, className = "", delay = 0, highlightWords = 
                 const isHighlight = highlightWords.some(hw => word.toLowerCase().includes(hw.toLowerCase()));
 
                 return (
-                    <motion.span variants={child} style={{ marginRight: "0.25em" }} key={index} className={isHighlight ? "text-emerald-500 font-bold drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]" : "text-inherit"}>
+                    <motion.span
+                        variants={child}
+                        style={{ marginRight: "0.25em" }}
+                        key={index}
+                        className={isHighlight ? highlightClassName : "text-inherit"}
+                        {...(isHighlight ? {
+                            animate: {
+                                opacity: [0.9, 1, 0.9],
+                                filter: ["drop-shadow(0 0 5px rgba(52,211,153,0.3))", "drop-shadow(0 0 15px rgba(52,211,153,0.5))", "drop-shadow(0 0 5px rgba(52,211,153,0.3))"],
+                            },
+                            transition: {
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }
+                        } : {})}
+                    >
                         {word}
                     </motion.span>
                 );

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { TechButton } from "../ui/TechButton";
+import { ShinyButton } from "../ui/ShinyButton";
 import { StaggerText } from "../ui/StaggerText";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
@@ -38,11 +38,10 @@ export function About() {
                             {t("about.badge")}
                         </motion.div>
 
-                        {/* Título */}
                         <StaggerText
                             text={t("about.title")}
-                            highlightWords={language === "en" ? ["complexity", "efficiency."] : ["complexidade", "eficiência."]}
-                            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1] mb-8 justify-center md:justify-start"
+                            highlightWords={language === "en" ? ["systems"] : ["sistemas"]}
+                            className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.1] mb-8 justify-center md:justify-start"
                         />
 
                         {/* Parágrafos */}
@@ -51,10 +50,9 @@ export function About() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                             viewport={{ once: true }}
-                            className="space-y-6 text-zinc-300 text-lg leading-relaxed max-w-lg text-center md:text-left"
+                            className="space-y-6 text-zinc-500 text-lg md:text-xl leading-relaxed max-w-lg text-center md:text-left font-light"
                         >
-                            <p>{t("about.p1")}</p>
-                            <p>{t("about.p2")}</p>
+                            <p>{t("about.text")}</p>
                         </motion.div>
 
                         {/* Botão */}
@@ -65,10 +63,9 @@ export function About() {
                             viewport={{ once: true }}
                             className="mt-10 w-full flex justify-center md:justify-start"
                         >
-                            <TechButton
+                            <ShinyButton
                                 text={t("about.cta")}
-                                variant="secondary"
-                                href="https://wa.me/5514997897239?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20como%20escalar%20meu%20neg%C3%B3cio%20com%20impulsionamento%20digital%21"
+                                href="https://wa.me/5514997897239?text=Ol%C3%A1%20Pedro%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20diagn%C3%B3stico%20de%20automa%C3%A7%C3%A3o%20para%20minha%20empresa."
                                 target="_blank"
                             />
                         </motion.div>

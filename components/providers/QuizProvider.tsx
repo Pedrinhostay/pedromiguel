@@ -59,7 +59,7 @@ export function QuizProvider({ children }: { children: ReactNode }) {
 
                                 <div className="space-y-4">
                                     <a
-                                        href="https://wa.me/5514997897239?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20fazer%20o%20quiz%20de%20qualifica%C3%A7%C3%A3o%21"
+                                        href="https://wa.me/5514997897239?text=Ol%C3%A1%20Pedro%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20diagn%C3%B3stico%20de%20automa%C3%A7%C3%A3o%20para%20minha%20empresa."
                                         target="_blank"
                                         className="flex h-14 w-full items-center justify-center rounded-2xl bg-emerald-500 font-bold text-black transition-all hover:bg-emerald-400 hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
                                     >

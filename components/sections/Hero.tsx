@@ -1,83 +1,55 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { TechButton } from "@/components/ui/TechButton";
+import { ShinyButton } from "@/components/ui/ShinyButton";
 import { StaggerText } from "@/components/ui/StaggerText";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { useQuiz } from "@/components/providers/QuizProvider";
 
 const chatVariantsPT = [
-    // VERSÃO 1: Dor Específica + Número Chocante
+    // VERSÃO 1: Processos Manuais + Sobrecarga
     [
-        { id: 1, variant: "user" as const, message: "Pedro, gastei 8 mil em anúncios esse mês. 400 cliques, ZERO vendas. E ainda perco 3h por dia respondendo 'qual o preço?' no Whats...", typingDuration: 1.8 },
-        { id: 2, variant: "ai" as const, message: "Vou transformar seu site em um vendedor 24h: landing page que converte visitante em agendamento + IA que qualifica lead enquanto você dorme. Resultado do último cliente: de 0% para 12% de conversão em 14 dias.", typingDuration: 2.6 },
-        { id: 3, variant: "user" as const, message: "CARALHO. Como a gente começa?", typingDuration: 1 },
+        { id: 1, variant: "user" as const, message: "Pedro, minha equipe não aguenta mais. Passamos o dia copiando dado de planilha pra CRM. Tá tudo manual, cansativo e lento...", typingDuration: 1.8 },
+        { id: 2, variant: "ai" as const, message: "Trabalho braçal mata a escala. Vou criar o sistema: integração total onde os dados fluem sozinhos e sua equipe foca só em fechar negócio. Menos esforço, mais inteligência.", typingDuration: 2.6 },
+        { id: 3, variant: "user" as const, message: "PERFEITO. Tira esse peso das minhas costas.", typingDuration: 1 },
     ],
 
-    // VERSÃO 2: Urgência Emocional
+    // VERSÃO 2: Ferramentas Desconectadas + Desorganização
     [
-        { id: 1, variant: "user" as const, message: "Pedro, estou exausto. Tráfego caro, site que não vende, e eu preso no operacional. Tô pensando em desistir do digital...", typingDuration: 1.8 },
-        { id: 2, variant: "ai" as const, message: "Para. Você não tem problema de produto. Tem problema de ponte. Vou construir a ponte: site que vende + automação que escala. Seu concorrente menor já faz isso. A diferença é que agora você vai fazer melhor.", typingDuration: 2.4 },
-        { id: 3, variant: "user" as const, message: "CARALHO. Me mostra como.", typingDuration: 1 },
+        { id: 1, variant: "user" as const, message: "Cara, tenho 5 ferramentas que não se falam. O lead chega num lugar, o financeiro tá no outro... Uma zona total.", typingDuration: 2.2 },
+        { id: 2, variant: "ai" as const, message: "Isso não é uma operação, é um labirinto. Vou orquestrar tudo: n8n conectando cada ponta da sua empresa. Organização absoluta pra você finalmente ter paz.", typingDuration: 2.4 },
+        { id: 3, variant: "user" as const, message: "PERFEITO. É exatamente o que eu preciso.", typingDuration: 1 },
     ],
 
-    // VERSÃO 3: Contraste Antes/Depois Extremo
+    // VERSÃO 3: Falta de Previsibilidade + Escala
     [
-        { id: 1, variant: "user" as const, message: "Pedro, meu site é bonito. Zero vendas. E eu ainda respondo cada lead manualmente como se fosse 2015...", typingDuration: 1.6 },
-        { id: 2, variant: "ai" as const, message: "Bonito não paga conta. Vou destruir e reconstruir: novo posicionamento que fecha em 2 toques + agente IA que atende 50 leads simultâneos. Você vai de escravo do operacional a dono do negócio. Em 10 dias.", typingDuration: 2.6 },
-        { id: 3, variant: "user" as const, message: "CARALHO. Era isso.", typingDuration: 1 },
-    ],
-
-    // VERSÃO 4: Medo de Perder
-    [
-        { id: 1, variant: "user" as const, message: "Pedro, tô vendo meus concorrentes crescerem no digital. Meu site tem 6 meses e nunca vendeu sozinho...", typingDuration: 1.6 },
-        { id: 2, variant: "ai" as const, message: "Em 6 meses eles não cresceram. Te ultrapassaram. Mas tem uma coisa: quem tem sistema vence quem tem só aparência. Vou instalar o sistema. Site + automação. Em 30 dias você olha para trás e ri de hoje.", typingDuration: 2.4 },
-        { id: 3, variant: "user" as const, message: "CARALHO. Vamos antes que eu piore.", typingDuration: 1 },
-    ],
-
-    // VERSÃO 5: O 'Hack'
-    [
-        { id: 1, variant: "user" as const, message: "Pedro, já tentei de tudo. Designer, tráfego pago, copy genérica. Nada converte...", typingDuration: 1.6 },
-        { id: 2, variant: "ai" as const, message: "Você tentou partes separadas. Nunca o sistema completo. Landing page otimizada para o algoritmo do Google + agente IA treinado na sua voz de venda. É o hack que seus concorrentes grandes usam. Só que agora é seu.", typingDuration: 2.4 },
-        { id: 3, variant: "user" as const, message: "CARALHO. Quanto pra começar amanhã?", typingDuration: 1 },
+        { id: 1, variant: "user" as const, message: "Pedro, eu não sei quanto vou vender amanhã. Se eu dobrar o investimento hoje, minha operação quebra porque não tem processo...", typingDuration: 2.0 },
+        { id: 2, variant: "ai" as const, message: "Você não tem um teto de faturamento, tem um teto de infraestrutura. Vou robustecer seu sistema: processos inteligentes que aguentam o impacto da escala com previsibilidade total.", typingDuration: 2.8 },
+        { id: 3, variant: "user" as const, message: "PERFEITO. Vamos construir esse alicerce.", typingDuration: 1 },
     ],
 ];
 const chatVariantsEN = [
-    // VERSION 1: Specific Pain + Shocking Number
+    // VERSION 1: Manual Processes + Overload
     [
-        { id: 1, variant: "user" as const, message: "Pedro, I spent $8k on ads this month. 400 clicks, ZERO sales. And I still waste 3h a day answering 'what's the price?' on WhatsApp...", typingDuration: 1.8 },
-        { id: 2, variant: "ai" as const, message: "I'll turn your site into a 24/7 seller: a landing page that converts visitors into bookings + AI that qualifies leads while you sleep. Last client's result: from 0% to 12% conversion in 14 days.", typingDuration: 2.6 },
-        { id: 3, variant: "user" as const, message: "HOLY SHIT. How do we start?", typingDuration: 1 },
+        { id: 1, variant: "user" as const, message: "Pedro, my team can't take it anymore. We spend all day copying data from spreadsheets to CRM. Everything's manual and slow...", typingDuration: 1.8 },
+        { id: 2, variant: "ai" as const, message: "Grunt work kills scale. I'll build the system: full integration where data flows by itself and your team focuses only on closing deals. Less effort, more intelligence.", typingDuration: 2.6 },
+        { id: 3, variant: "user" as const, message: "AMAZING. Take this weight off my back.", typingDuration: 1 },
     ],
 
-    // VERSION 2: Emotional Urgency
+    // VERSION 2: Disconnected Tools + Disorganization
     [
-        { id: 1, variant: "user" as const, message: "Pedro, I'm exhausted. Expensive traffic, a site that doesn't sell, and I'm stuck in ops. I'm thinking of giving up on digital...", typingDuration: 1.8 },
-        { id: 2, variant: "ai" as const, message: "Stop. It's not your product — it's the bridge. I'll build the bridge: a site that sells + automation that scales. Your smaller competitor already does this. The difference is you'll do it better.", typingDuration: 2.4 },
-        { id: 3, variant: "user" as const, message: "HOLY SHIT. Show me how.", typingDuration: 1 },
+        { id: 1, variant: "user" as const, message: "Man, I have 5 tools that don't talk to each other. Lead is in one place, finance in another... A total mess.", typingDuration: 2.2 },
+        { id: 2, variant: "ai" as const, message: "That's not an operation, it's a maze. I'll orchestrate everything: n8n connecting every part of your business. Absolute organization so you can finally have peace.", typingDuration: 2.4 },
+        { id: 3, variant: "user" as const, message: "AMAZING. This is exactly what I need.", typingDuration: 1 },
     ],
 
-    // VERSION 3: Extreme Before/After Contrast
+    // VERSION 3: Predictability + Scale
     [
-        { id: 1, variant: "user" as const, message: "Pedro, my site is pretty. Zero sales. And I still reply to every lead manually like it's 2015...", typingDuration: 1.6 },
-        { id: 2, variant: "ai" as const, message: "Pretty doesn't pay the bills. I'll tear it down and rebuild: new positioning that closes in 2 touches + an AI agent that handles 50 leads simultaneously. You'll go from ops slave to business owner. In 10 days.", typingDuration: 2.6 },
-        { id: 3, variant: "user" as const, message: "HOLY SHIT. That's it.", typingDuration: 1 },
-    ],
-
-    // VERSION 4: Fear of Missing Out
-    [
-        { id: 1, variant: "user" as const, message: "Pedro, I'm seeing my competitors grow online. My site is 6 months old and never sold by itself...", typingDuration: 1.6 },
-        { id: 2, variant: "ai" as const, message: "In 6 months they didn't just 'grow' — they overtook you. But here's the thing: systems beat looks. I'll install the system. Site + automation. In 30 days you'll look back and laugh at today.", typingDuration: 2.4 },
-        { id: 3, variant: "user" as const, message: "HOLY SHIT. Let's do it before I get worse.", typingDuration: 1 },
-    ],
-
-    // VERSION 5: The 'Hack'
-    [
-        { id: 1, variant: "user" as const, message: "Pedro, I've tried everything. Designer, paid traffic, generic copy. Nothing converts...", typingDuration: 1.6 },
-        { id: 2, variant: "ai" as const, message: "You tried the pieces separately. Never the full system. Landing page optimized for Google's algorithm + an AI agent trained in your sales voice. It's the hack big competitors use. Now it's yours.", typingDuration: 2.4 },
-        { id: 3, variant: "user" as const, message: "HOLY SHIT. How much to start tomorrow?", typingDuration: 1 },
+        { id: 1, variant: "user" as const, message: "Pedro, I don't know how much I'll sell tomorrow. If I double my investment today, my operation breaks because there's no process...", typingDuration: 2.0 },
+        { id: 2, variant: "ai" as const, message: "You don't have a revenue ceiling, you have an infrastructure ceiling. I'll strengthen your system: intelligent processes that handle scale with total predictability.", typingDuration: 2.8 },
+        { id: 3, variant: "user" as const, message: "AMAZING. Let's build that foundation.", typingDuration: 1 },
     ],
 ];
 
@@ -140,9 +112,24 @@ export function Hero() {
 
                     {/* Left Content - Typography Focused */}
                     <div className="lg:col-span-7 flex flex-col justify-end lg:justify-center items-center lg:items-start text-center lg:text-left">
+                        {/* Personal Branding */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1, duration: 0.8 }}
+                            className="flex items-center gap-2 mb-6 px-4 lg:px-0"
+                        >
+                            <span className="text-zinc-400 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">
+                                Pedro Miguel
+                            </span>
+                            <div className="w-1 h-1 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" />
+                            <span className="text-zinc-500 text-[10px] md:text-xs font-medium tracking-[0.15em] uppercase">
+                                Engenheiro de Automação
+                            </span>
+                        </motion.div>
                         <StaggerText
                             text={t("hero.title")}
-                            highlightWords={language === "en" ? ["Pages", "scale"] : ["Páginas", "escala"]}
+                            highlightWords={language === "en" ? ["Intelligent Systems", "AI"] : ["Sistemas Inteligentes", "IA"]}
                             className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white leading-[1.05] mb-8 justify-center lg:justify-start"
                         />
 
@@ -150,7 +137,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
-                            className="text-base md:text-xl text-zinc-400 max-w-xl leading-relaxed mb-8 lg:mb-10 font-light px-4 lg:px-0"
+                            className="text-base md:text-xl text-zinc-500 max-w-xl leading-relaxed mb-8 lg:mb-10 font-light px-4 lg:px-0"
                         >
                             {t("hero.subtitle")}
                         </motion.p>
@@ -160,18 +147,22 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
-                            className="flex flex-nowrap gap-4 justify-center lg:justify-start items-center"
+                            className="flex flex-col items-center lg:items-start gap-4 px-4 lg:px-0"
                         >
-                            <TechButton
+                            <ShinyButton
                                 text={t("hero.cta")}
                                 onClick={openQuiz}
-                                variant="default"
+                                size="lg"
+                                className="w-full sm:w-auto"
                             />
+                            <p className="text-zinc-500 text-[10px] font-medium tracking-wide uppercase opacity-70">
+                                {t("hero.ctaSubtext")}
+                            </p>
                         </motion.div>
                     </div>
 
-                    {/* Right Content - Realistic Chat Simulation - Hidden on Mobile/Tablet */}
-                    <div className="hidden lg:flex lg:col-span-5 flex-col justify-end items-end h-[500px] lg:mt-28 relative pb-5 pr-2 lg:pr-8">
+                    {/* Right Content - Realistic Chat Simulation - Lowered position */}
+                    <div className="hidden lg:flex lg:col-span-5 flex-col justify-end items-end h-[500px] lg:mt-48 relative pb-5 pr-2 lg:pr-8">
                         <div className="w-full max-w-sm flex flex-col gap-4 relative z-50">
                             <AnimatePresence mode="popLayout">
                                 {/* Typing Indicator */}

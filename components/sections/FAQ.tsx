@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { StaggerText } from "@/components/ui/StaggerText";
 
 const faqKeys = [
     { questionKey: "faq.q1", answerKey: "faq.a1" },
@@ -15,23 +16,21 @@ const faqKeys = [
 
 export function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <section className="w-full bg-[#050505] py-24 md:py-32 px-6">
             <div className="mx-auto max-w-3xl">
 
-                {/* Header */}
-                <div className="text-center mb-16 space-y-4">
+                <div className="text-center mb-20 space-y-6">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-emerald-950/30 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest backdrop-blur-md">
                         {t("faq.badge")}
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white">
-                        {t("faq.title")}
-                    </h2>
-                    <p className="text-zinc-400 max-w-lg mx-auto">
-                        {t("faq.subtitle")}
-                    </p>
+                    <StaggerText
+                        text={t("faq.title")}
+                        highlightWords={language === "en" ? ["Frequently"] : ["Dúvidas"]}
+                        className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.1] justify-center"
+                    />
                 </div>
 
                 {/* Accordion */}
