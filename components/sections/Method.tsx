@@ -36,12 +36,10 @@ export function Method() {
                     />
                 </div>
 
-                <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* Connecting line (Desktop) */}
-                    <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[1px] bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent z-0" />
-
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/[0.06]">
                     {steps.map((step, idx) => {
                         const Icon = step.icon;
+                        const number = String(idx + 1).padStart(2, "0");
                         return (
                             <motion.div
                                 key={step.id}
@@ -49,18 +47,23 @@ export function Method() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="relative z-10 flex flex-col items-center text-center group"
+                                className="group relative overflow-hidden p-10 bg-[#0a0a0a] hover:bg-[#111] transition-colors duration-400 cursor-default border-r border-white/[0.06] last:border-r-0 max-lg:border-r-0 max-md:border-b max-md:border-white/[0.06] max-md:last:border-b-0 md:max-lg:even:border-r-0 md:max-lg:nth-child(-n+2):border-b md:max-lg:nth-child(-n+2):border-b-white/[0.06]"
                             >
-                                <div className="w-20 h-20 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center mb-8 relative group-hover:border-emerald-500/50 group-hover:bg-emerald-950/30 transition-all duration-500">
-                                    <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full border border-white/10 bg-zinc-900 flex items-center justify-center text-xs font-bold text-emerald-400 group-hover:border-emerald-500/50">
-                                        {step.id}
-                                    </div>
-                                    <Icon className="w-8 h-8 text-zinc-400 group-hover:text-emerald-400 transition-colors" />
+                                {/* Animated top line */}
+                                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-400 to-emerald-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+
+                                <span className="block font-semibold text-[0.7rem] text-emerald-400 tracking-[0.1em] mb-6">
+                                    {number}
+                                </span>
+
+                                <div className="w-10 h-10 border border-white/[0.08] rounded-[10px] flex items-center justify-center mb-6 text-emerald-400 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/[0.08] transition-all duration-300">
+                                    <Icon className="w-5 h-5" />
                                 </div>
-                                <h3 className="text-white font-semibold text-xl mb-4 group-hover:text-emerald-400 transition-colors">
+
+                                <h3 className="font-semibold text-[1.3rem] text-white tracking-tight mb-4">
                                     {t(`${step.key}.title`)}
                                 </h3>
-                                <p className="text-zinc-500 text-base font-light leading-relaxed max-w-[240px]">
+                                <p className="text-zinc-500 text-[0.9rem] leading-[1.7]">
                                     {t(`${step.key}.desc`)}
                                 </p>
                             </motion.div>

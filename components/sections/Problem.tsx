@@ -49,26 +49,37 @@ export function Problem() {
 
                     {/* Right: Pain Points Grid */}
                     <div className="space-y-6">
-                        <div className="grid grid-cols-1 gap-4">
-                            {items.map((i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, x: 20 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.1 * i }}
-                                    className="flex items-start gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-red-500/20 transition-colors group"
-                                >
-                                    <div className="mt-1 flex-shrink-0 w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500">
-                                        <XCircle className="w-5 h-5" />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-white font-medium text-lg mb-1 group-hover:text-red-400 transition-colors">
-                                            {t(`problem.item${i}`)}
-                                        </h4>
-                                    </div>
-                                </motion.div>
-                            ))}
+                        <div className="grid grid-cols-1 gap-0 border border-white/[0.06]">
+                            {items.map((i, idx) => {
+                                const number = String(i).padStart(2, "0");
+                                return (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, x: 20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.1 * i }}
+                                        className="group relative overflow-hidden p-8 bg-[#0a0a0a] hover:bg-[#111] transition-colors duration-400 cursor-default border-b border-white/[0.06] last:border-b-0"
+                                    >
+                                        {/* Animated top line */}
+                                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-red-400 to-red-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+
+                                        <div className="flex items-start gap-5">
+                                            <div className="flex flex-col items-center gap-3">
+                                                <span className="block font-semibold text-[0.7rem] text-red-400 tracking-[0.1em]">
+                                                    {number}
+                                                </span>
+                                                <div className="w-10 h-10 border border-white/[0.08] rounded-[10px] flex items-center justify-center text-red-400 group-hover:border-red-400/40 group-hover:bg-red-400/[0.08] transition-all duration-300">
+                                                    <XCircle className="w-5 h-5" />
+                                                </div>
+                                            </div>
+                                            <h4 className="font-semibold text-[1.1rem] text-white tracking-tight pt-6">
+                                                {t(`problem.item${i}`)}
+                                            </h4>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
                         </div>
 
                         <motion.p

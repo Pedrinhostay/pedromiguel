@@ -34,35 +34,38 @@ export function Comparison() {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border border-white/[0.06]">
 
                     {/* BEFORE: Manual */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="relative p-8 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/5 overflow-hidden group hover:border-red-500/20 transition-colors duration-500"
+                        className="group relative overflow-hidden bg-[#0a0a0a] hover:bg-[#111] transition-colors duration-400 border-r border-white/[0.06] max-md:border-r-0 max-md:border-b max-md:border-white/[0.06]"
                     >
-                        {/* Icon Header */}
-                        <div className="flex flex-col items-center text-center mb-12">
-                            <div className="w-20 h-20 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500 mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(239,68,68,0.1)]">
-                                <ThumbsDown className="w-8 h-8" />
-                            </div>
-                            <h3 className="text-white font-semibold text-2xl md:text-3xl">
-                                {t("comparison.before.title")}
-                            </h3>
-                        </div>
+                        {/* Animated top line - red */}
+                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-red-400 to-red-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
 
-                        {/* Items */}
-                        <div className="space-y-6">
-                            {items.map((i) => (
-                                <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-red-500/[0.02] border border-red-500/5 group-hover:border-red-500/10 transition-colors">
-                                    <XCircle className="w-5 h-5 text-red-500/50 mt-1 flex-shrink-0" />
-                                    <span className="text-zinc-400 text-lg font-light leading-snug">
-                                        {t(`comparison.before.item${i}`)}
-                                    </span>
+                        <div className="p-10 md:p-12">
+                            <div className="flex items-center gap-4 mb-10">
+                                <div className="w-10 h-10 border border-white/[0.08] rounded-[10px] flex items-center justify-center text-red-400 group-hover:border-red-400/40 group-hover:bg-red-400/[0.08] transition-all duration-300">
+                                    <ThumbsDown className="w-5 h-5" />
                                 </div>
-                            ))}
+                                <h3 className="font-semibold text-[1.3rem] text-white tracking-tight">
+                                    {t("comparison.before.title")}
+                                </h3>
+                            </div>
+
+                            <div className="space-y-0 border-t border-white/[0.06]">
+                                {items.map((i) => (
+                                    <div key={i} className="flex items-center gap-4 py-5 border-b border-white/[0.06] last:border-b-0">
+                                        <XCircle className="w-4 h-4 text-red-400/60 flex-shrink-0" />
+                                        <span className="text-zinc-400 text-[0.95rem] leading-snug">
+                                            {t(`comparison.before.item${i}`)}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
 
@@ -71,32 +74,35 @@ export function Comparison() {
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="relative p-8 md:p-12 rounded-[2.5rem] bg-emerald-500/[0.02] border border-emerald-500/10 overflow-hidden group hover:border-emerald-500/30 transition-colors duration-500 shadow-[0_0_50px_rgba(16,185,129,0.05)]"
+                        className="group relative overflow-hidden bg-[#0a0a0a] hover:bg-[#111] transition-colors duration-400"
                     >
-                        {/* Icon Header */}
-                        <div className="flex flex-col items-center text-center mb-12">
-                            <div className="w-20 h-20 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(16,185,129,0.15)]">
-                                <ThumbsUp className="w-8 h-8" />
-                            </div>
-                            <h3 className="text-white font-semibold text-2xl md:text-3xl">
-                                {t("comparison.after.title")}
-                            </h3>
-                        </div>
+                        {/* Animated top line - emerald */}
+                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-400 to-emerald-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
 
-                        {/* Items */}
-                        <div className="space-y-6">
-                            {items.map((i) => (
-                                <div key={i} className="flex items-start gap-4 p-4 rounded-xl bg-emerald-500/5 border border-emerald-500/10 group-hover:border-emerald-500/20 transition-colors">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-1 flex-shrink-0" />
-                                    <span className="text-zinc-200 text-lg font-medium leading-snug">
-                                        {t(`comparison.after.item${i}`)}
-                                    </span>
+                        <div className="p-10 md:p-12">
+                            <div className="flex items-center gap-4 mb-10">
+                                <div className="w-10 h-10 border border-white/[0.08] rounded-[10px] flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/[0.08] transition-all duration-300">
+                                    <ThumbsUp className="w-5 h-5" />
                                 </div>
-                            ))}
+                                <h3 className="font-semibold text-[1.3rem] text-white tracking-tight">
+                                    {t("comparison.after.title")}
+                                </h3>
+                            </div>
+
+                            <div className="space-y-0 border-t border-white/[0.06]">
+                                {items.map((i) => (
+                                    <div key={i} className="flex items-center gap-4 py-5 border-b border-white/[0.06] last:border-b-0">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                                        <span className="text-zinc-200 text-[0.95rem] font-medium leading-snug">
+                                            {t(`comparison.after.item${i}`)}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
-                        {/* Bottom bar indicator like the reference image */}
-                        <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-600 to-emerald-400 opacity-50" />
+                        {/* Bottom bar */}
+                        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-600 to-emerald-400 opacity-50" />
                     </motion.div>
 
                 </div>

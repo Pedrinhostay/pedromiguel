@@ -4,7 +4,6 @@ import "./globals.css";
 import { ScrollProvider } from "@/components/providers/ScrollProvider";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { QuizProvider } from "@/components/providers/QuizProvider";
-import { Preloader } from "@/components/ui/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -69,7 +68,6 @@ export default function RootLayout({
       >
         <LanguageProvider>
           <QuizProvider>
-            <Preloader />
             <ScrollProvider>
               {children}
             </ScrollProvider>

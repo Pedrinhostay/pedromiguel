@@ -41,6 +41,19 @@ const translations: Record<Language, Record<string, string>> = {
         "problem.item3": "Falta de previsibilidade de crescimento",
         "problem.footer": "Enquanto isso, empresas que adotam automação e IA aplicada à operação conseguem crescer com muito mais organização e eficiência.",
 
+        // Social Proof
+        "socialProof.badge": "RESULTADOS MATEMÁTICOS",
+        "socialProof.title": "A prova está nos números e na operação de quem já transformou",
+        "socialProof.card1.quote": "Antes nossa equipe perdia 4h por dia copiando dados de planilha para o CRM. Hoje o lead entra e já recebe mensagem instantânea e qualificada.",
+        "socialProof.card1.metric": "-20h/semana de trabalho manual",
+        "socialProof.card1.author": "Diretor Comercial",
+        "socialProof.card2.quote": "Não sabíamos o momento certo de abordar os clientes. Com o novo sistema, temos alertas automáticos quando o lead está quente. Nossas conversões dobraram.",
+        "socialProof.card2.metric": "+115% de aumento em conversão",
+        "socialProof.card2.author": "Head de Crescimento",
+        "socialProof.card3.quote": "Integramos N8N com tudo: WhatsApp, Pipefy e nosso ERP. O labirinto que a gente chamava de 'processo' virou uma estrada livre.",
+        "socialProof.card3.metric": "100% de integração na esteira",
+        "socialProof.card3.author": "CEO de Operações",
+
         // Comparison
         "comparison.badge": "COMPARAÇÃO",
         "comparison.title": "O impacto real da transformação",
@@ -173,6 +186,19 @@ const translations: Record<Language, Record<string, string>> = {
         "problem.item2": "Loss of efficiency",
         "problem.item3": "Lack of growth predictability",
         "problem.footer": "Meanwhile, companies that adopt automation and AI applied to operation manage to grow with much more organization and efficiency.",
+
+        // Social Proof
+        "socialProof.badge": "MATHEMATICAL RESULTS",
+        "socialProof.title": "The proof is in the numbers and operations of those who already transformed",
+        "socialProof.card1.quote": "Before, our team lost 4 hours a day copying spreadsheet data to the CRM. Today the lead enters and immediately receives an instant and qualified message.",
+        "socialProof.card1.metric": "-20h/week of manual work",
+        "socialProof.card1.author": "Sales Director",
+        "socialProof.card2.quote": "We didn't know the right time to approach customers. With the new system, we have automatic alerts when the lead is hot. Our conversions doubled.",
+        "socialProof.card2.metric": "+115% increase in conversion",
+        "socialProof.card2.author": "Head of Growth",
+        "socialProof.card3.quote": "We integrated N8N with everything: WhatsApp, Pipefy, and our ERP. The maze we used to call 'process' became a free highway.",
+        "socialProof.card3.metric": "100% workflow integration",
+        "socialProof.card3.author": "CEO of Operations",
 
         // Comparison
         "comparison.badge": "COMPARISON",

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { Cpu, Workflow, Layers, BarChart3, CheckCircle2 } from "lucide-react";
+import { Cpu, Workflow, Layers, BarChart3 } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { StaggerText } from "@/components/ui/StaggerText";
 
@@ -12,36 +12,24 @@ const features = [
         titleKey: "features.card1.title",
         descriptionKey: "features.card1.desc",
         icon: Cpu,
-        color: "from-emerald-950 to-emerald-900/50",
-        iconColor: "text-emerald-400",
-        border: "border-emerald-500/20",
     },
     {
         id: 2,
         titleKey: "features.card2.title",
         descriptionKey: "features.card2.desc",
         icon: Workflow,
-        color: "from-zinc-900 to-zinc-950",
-        iconColor: "text-emerald-400",
-        border: "border-white/10",
     },
     {
         id: 3,
         titleKey: "features.card3.title",
         descriptionKey: "features.card3.desc",
         icon: Layers,
-        color: "from-emerald-950 to-emerald-900/50",
-        iconColor: "text-emerald-400",
-        border: "border-emerald-500/20",
     },
     {
         id: 4,
         titleKey: "features.card4.title",
         descriptionKey: "features.card4.desc",
         icon: BarChart3,
-        color: "from-zinc-900 to-zinc-950",
-        iconColor: "text-emerald-400",
-        border: "border-white/10",
     },
 ];
 
@@ -74,9 +62,10 @@ export function Solutions() {
                         />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/[0.06]">
                         {features.map((feature, index) => {
                             const Icon = feature.icon;
+                            const number = String(index + 1).padStart(2, "0");
                             return (
                                 <motion.div
                                     key={feature.id}
@@ -84,16 +73,23 @@ export function Solutions() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: index * 0.1 }}
-                                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                                    className={`group p-8 rounded-3xl border ${feature.border} bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500`}
+                                    className="group relative overflow-hidden p-10 bg-[#0a0a0a] hover:bg-[#111] transition-colors duration-400 cursor-default border-r border-white/[0.06] last:border-r-0 max-lg:border-r-0 max-md:border-b max-md:border-white/[0.06] max-md:last:border-b-0 md:max-lg:even:border-r-0 md:max-lg:nth-child(-n+2):border-b md:max-lg:nth-child(-n+2):border-b-white/[0.06]"
                                 >
-                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center ${feature.iconColor} border border-white/5 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                                        <Icon className="w-7 h-7" />
+                                    {/* Animated top line */}
+                                    <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-400 to-emerald-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+
+                                    <span className="block font-semibold text-[0.7rem] text-emerald-400 tracking-[0.1em] mb-6">
+                                        {number}
+                                    </span>
+
+                                    <div className="w-10 h-10 border border-white/[0.08] rounded-[10px] flex items-center justify-center mb-6 text-emerald-400 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/[0.08] transition-all duration-300">
+                                        <Icon className="w-5 h-5" />
                                     </div>
-                                    <h3 className="text-white font-semibold text-xl mb-3 group-hover:text-emerald-400 transition-colors">
+
+                                    <h3 className="font-semibold text-[1.3rem] text-white tracking-tight mb-4">
                                         {t(feature.titleKey)}
                                     </h3>
-                                    <p className="text-zinc-500 text-base leading-relaxed font-light">
+                                    <p className="text-zinc-500 text-[0.9rem] leading-[1.7]">
                                         {t(feature.descriptionKey)}
                                     </p>
                                 </motion.div>

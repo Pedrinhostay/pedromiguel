@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageSquare, CreditCard, Share2, Database, Mail, Globe, Layers } from "lucide-react";
+import { MessageSquare, CreditCard, Share2, Database, Globe, Layers } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { StaggerText } from "@/components/ui/StaggerText";
 
 const integrationCategories = [
-    { id: 1, key: "integrations.item1", icon: MessageSquare, color: "text-emerald-400" },
-    { id: 2, key: "integrations.item2", icon: CreditCard, color: "text-emerald-400" },
-    { id: 3, key: "integrations.item3", icon: Share2, color: "text-emerald-400" },
-    { id: 4, key: "integrations.item4", icon: Database, color: "text-emerald-400" },
+    { id: 1, key: "integrations.item1", icon: MessageSquare },
+    { id: 2, key: "integrations.item2", icon: CreditCard },
+    { id: 3, key: "integrations.item3", icon: Share2 },
+    { id: 4, key: "integrations.item4", icon: Database },
 ];
 
 export function Integrations() {
@@ -87,9 +87,10 @@ export function Integrations() {
                             {t("integrations.text")}
                         </motion.p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border border-white/[0.06]">
                             {integrationCategories.map((cat, idx) => {
                                 const Icon = cat.icon;
+                                const number = String(idx + 1).padStart(2, "0");
                                 return (
                                     <motion.div
                                         key={cat.id}
@@ -97,12 +98,20 @@ export function Integrations() {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.1 * idx }}
-                                        className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/20 transition-colors"
+                                        className="group relative overflow-hidden p-8 bg-[#0a0a0a] hover:bg-[#111] transition-colors duration-400 cursor-default border-r border-b border-white/[0.06] even:border-r-0 nth-last-child(-n+2):border-b-0 max-sm:border-r-0 max-sm:last:border-b-0 max-sm:nth-last-child(-n+2):border-b"
                                     >
-                                        <div className={`w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center ${cat.color}`}>
+                                        {/* Animated top line */}
+                                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-emerald-400 to-emerald-600 scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+
+                                        <span className="block font-semibold text-[0.7rem] text-emerald-400 tracking-[0.1em] mb-4">
+                                            {number}
+                                        </span>
+
+                                        <div className="w-10 h-10 border border-white/[0.08] rounded-[10px] flex items-center justify-center mb-4 text-emerald-400 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/[0.08] transition-all duration-300">
                                             <Icon className="w-5 h-5" />
                                         </div>
-                                        <span className="text-zinc-300 font-medium">{t(cat.key)}</span>
+
+                                        <span className="font-semibold text-[1.1rem] text-white tracking-tight">{t(cat.key)}</span>
                                     </motion.div>
                                 )
                             })}

@@ -2,11 +2,11 @@
 
 import { Hero } from "@/components/sections/Hero";
 import { BrandCarousel } from "@/components/sections/BrandCarousel";
+import { SocialProof } from "@/components/sections/SocialProof";
 import { Comparison } from "@/components/sections/Comparison";
 import { Solutions } from "@/components/sections/Solutions";
 import { Integrations } from "@/components/sections/Integrations";
 import { Method } from "@/components/sections/Method";
-import { Impact } from "@/components/sections/Impact";
 import { About } from "@/components/sections/About";
 import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -20,6 +20,9 @@ export default function Home() {
             {/* 2. Authority (Brands) */}
             <BrandCarousel />
 
+            {/* 2.5 Social Proof (Testimonials / Results) */}
+            <SocialProof />
+
             {/* 3 & 4. Comparison (Problem vs Solution) */}
             <Comparison />
 
@@ -31,9 +34,6 @@ export default function Home() {
 
             {/* 7. Method */}
             <Method />
-
-            {/* 8. Impact */}
-            <Impact />
 
             {/* 9. About */}
             <About />
