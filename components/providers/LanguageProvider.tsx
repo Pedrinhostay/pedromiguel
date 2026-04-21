@@ -19,12 +19,12 @@ const translations: Record<Language, Record<string, string>> = {
         "header.cta": "Agendar Consultoria",
 
         // 1. Hero
-        "hero.title": "Transforme Processos Manuais em Sistemas Inteligentes com IA",
-        "hero.subtitle": "Criamos sistemas inteligentes que substituem tarefas manuais, conectam ferramentas e transformam sua operação em uma máquina previsível de crescimento.",
+        "hero.title": "Transformamos áreas comerciais bagunçadas em máquinas previsíveis de receita — com IA, processo e dado.",
+        "hero.subtitle": "Para setores comerciais que já tentaram CRM, SDR terceirizado e automação genérica e viram que o problema nunca foi a ferramenta, foi a estrutura.",
         "hero.benefit1": "Menos tarefas operacionais",
         "hero.benefit2": "Processos organizados e automatizados",
         "hero.benefit3": "Mais previsibilidade de crescimento",
-        "hero.cta": "Agendar diagnóstico de automação",
+        "hero.cta": "Mapa Gratuito da Minha Estrutura",
         "hero.ctaSubtext": "Diagnóstico estratégico • Sem compromisso • 30 minutos",
 
         // 2. Authority (Brands)
@@ -40,19 +40,6 @@ const translations: Record<Language, Record<string, string>> = {
         "problem.item2": "Perda de eficiência",
         "problem.item3": "Falta de previsibilidade de crescimento",
         "problem.footer": "Enquanto isso, empresas que adotam automação e IA aplicada à operação conseguem crescer com muito mais organização e eficiência.",
-
-        // Social Proof
-        "socialProof.badge": "RESULTADOS MATEMÁTICOS",
-        "socialProof.title": "A prova está nos números e na operação de quem já transformou",
-        "socialProof.card1.quote": "Antes nossa equipe perdia 4h por dia copiando dados de planilha para o CRM. Hoje o lead entra e já recebe mensagem instantânea e qualificada.",
-        "socialProof.card1.metric": "-20h/semana de trabalho manual",
-        "socialProof.card1.author": "Diretor Comercial",
-        "socialProof.card2.quote": "Não sabíamos o momento certo de abordar os clientes. Com o novo sistema, temos alertas automáticos quando o lead está quente. Nossas conversões dobraram.",
-        "socialProof.card2.metric": "+115% de aumento em conversão",
-        "socialProof.card2.author": "Head de Crescimento",
-        "socialProof.card3.quote": "Integramos N8N com tudo: WhatsApp, Pipefy e nosso ERP. O labirinto que a gente chamava de 'processo' virou uma estrada livre.",
-        "socialProof.card3.metric": "100% de integração na esteira",
-        "socialProof.card3.author": "CEO de Operações",
 
         // Comparison
         "comparison.badge": "COMPARAÇÃO",
@@ -165,12 +152,12 @@ const translations: Record<Language, Record<string, string>> = {
         "header.cta": "Schedule Consultation",
 
         // 1. Hero
-        "hero.title": "Transform Manual Processes into Intelligent Systems with AI",
-        "hero.subtitle": "We create intelligent systems that replace manual tasks, connect tools, and transform your operation into a predictable growth machine.",
+        "hero.title": "We turn messy sales operations into predictable revenue machines — with AI, process and data.",
+        "hero.subtitle": "For sales directors and CEOs who already tried CRMs, outsourced SDRs and generic automation — and saw that the problem was never the tool, it was the structure.",
         "hero.benefit1": "Fewer operational tasks",
         "hero.benefit2": "Organized and automated processes",
         "hero.benefit3": "Better growth predictability",
-        "hero.cta": "Schedule automation diagnostic",
+        "hero.cta": "My Free Structure Map",
         "hero.ctaSubtext": "Strategic diagnostic • No commitment • 30 minutes",
 
         // 2. Authority (Brands)
@@ -186,19 +173,6 @@ const translations: Record<Language, Record<string, string>> = {
         "problem.item2": "Loss of efficiency",
         "problem.item3": "Lack of growth predictability",
         "problem.footer": "Meanwhile, companies that adopt automation and AI applied to operation manage to grow with much more organization and efficiency.",
-
-        // Social Proof
-        "socialProof.badge": "MATHEMATICAL RESULTS",
-        "socialProof.title": "The proof is in the numbers and operations of those who already transformed",
-        "socialProof.card1.quote": "Before, our team lost 4 hours a day copying spreadsheet data to the CRM. Today the lead enters and immediately receives an instant and qualified message.",
-        "socialProof.card1.metric": "-20h/week of manual work",
-        "socialProof.card1.author": "Sales Director",
-        "socialProof.card2.quote": "We didn't know the right time to approach customers. With the new system, we have automatic alerts when the lead is hot. Our conversions doubled.",
-        "socialProof.card2.metric": "+115% increase in conversion",
-        "socialProof.card2.author": "Head of Growth",
-        "socialProof.card3.quote": "We integrated N8N with everything: WhatsApp, Pipefy, and our ERP. The maze we used to call 'process' became a free highway.",
-        "socialProof.card3.metric": "100% workflow integration",
-        "socialProof.card3.author": "CEO of Operations",
 
         // Comparison
         "comparison.badge": "COMPARISON",

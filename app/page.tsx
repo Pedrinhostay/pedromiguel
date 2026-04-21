@@ -2,7 +2,6 @@
 
 import { Hero } from "@/components/sections/Hero";
 import { BrandCarousel } from "@/components/sections/BrandCarousel";
-import { SocialProof } from "@/components/sections/SocialProof";
 import { Comparison } from "@/components/sections/Comparison";
 import { Solutions } from "@/components/sections/Solutions";
 import { Integrations } from "@/components/sections/Integrations";
@@ -19,9 +18,6 @@ export default function Home() {
 
             {/* 2. Authority (Brands) */}
             <BrandCarousel />
-
-            {/* 2.5 Social Proof (Testimonials / Results) */}
-            <SocialProof />
 
             {/* 3 & 4. Comparison (Problem vs Solution) */}
             <Comparison />

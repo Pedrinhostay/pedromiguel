@@ -129,7 +129,7 @@ export function Hero() {
                         </motion.div>
                         <StaggerText
                             text={t("hero.title")}
-                            highlightWords={language === "en" ? ["Intelligent Systems", "AI"] : ["Sistemas Inteligentes", "IA"]}
+                            highlightWords={language === "en" ? ["predictable revenue machines", "AI"] : ["máquinas previsíveis de receita", "IA"]}
                             className="text-3xl sm:text-4xl md:text-6xl font-semibold tracking-tight text-white leading-[1.05] mb-8 justify-center lg:justify-start"
                         />
 
